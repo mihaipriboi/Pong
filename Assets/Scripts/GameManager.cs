@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     {
         paddle1.GetComponent<Rigidbody2D>().transform.position = paddle1.GetComponent<Rigidbody2D>().transform.position * new Vector2(1f, 0f);
         paddle2.GetComponent<Rigidbody2D>().transform.position = paddle2.GetComponent<Rigidbody2D>().transform.position * new Vector2(1f, 0f);
+        paddle1.GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(Vector3.zero);
+        paddle2.GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(Vector3.zero);
+        paddle1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        paddle2.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         if (player == 1)
         {

@@ -6,6 +6,8 @@ public class Paddle : MonoBehaviour
 {
     public KeyCode upKey;
     public KeyCode downKey;
+    public KeyCode leftKey;
+    public KeyCode rightKey;
 
     public float moveSpeed = 5;
     public float ballVerticalImpulse = 2;
@@ -30,6 +32,15 @@ public class Paddle : MonoBehaviour
         else
         {
             movement = new Vector3(0f, 0f, 0f);
+        }
+
+        if (Input.GetKey(leftKey))
+        {
+            GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(GetComponent<Rigidbody2D>().transform.rotation.eulerAngles + new Vector3(0, 0, 5));
+        }
+        else if (Input.GetKey(rightKey))
+        {
+            GetComponent<Rigidbody2D>().transform.rotation = Quaternion.Euler(GetComponent<Rigidbody2D>().transform.rotation.eulerAngles + new Vector3(0, 0, -5));
         }
 
         GetComponent<Rigidbody2D>().transform.position = GetComponent<Rigidbody2D>().transform.position + movement * moveSpeed * Time.deltaTime;
